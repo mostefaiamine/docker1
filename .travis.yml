@@ -1,0 +1,9 @@
+sudo: required
+services: 
+    - docker
+
+before_install:
+    - docker build -t mostefaiamine/docker1 -f Dockerfile.dev .
+
+script:
+    - docker run mostefaiamine/docker1 npm run test -- --coverage
